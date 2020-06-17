@@ -1,22 +1,28 @@
-# hekto-github-action
-Github action for Hekto CI/CD
+# Hekto Deployer
+Github action for Hekto CI/CD.
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+Automatic deployment of branches to Hekto.
+
+This action assumes that the application has already been prepared for deployment. Use this action after other actions that builds the application.
 
 ## Inputs
 
-### `who-to-greet`
+### `token`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** Token for authorization. Can be found on your Hekto profile page.
 
-## Outputs
+### `source`
 
-### `time`
+The source folder to deploy. Default `/`.
 
-The time we greeted you.
+### `url`
+
+For development purposes. Specifies what url the action should target. Default `https://hekto.app`.
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@v1
+```
+uses: standout/hekto-deployer@v1
 with:
-  who-to-greet: 'Mona the Octocat'
+  token: 'ukBGtVBVk1uCEgZhayJkjxMsaBwM9H72dXe5ULW1AgFyTvBo'
+```

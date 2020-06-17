@@ -1,15 +1,21 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Hekto Deployer'
+description: 'Deploy to Hekto'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  token:
+    description: 'token'
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  source:
+    description: 'source'
+    required: false
+    default: './'
+  url:
+    description: 'url'
+    reqired: false
+    default: 'https://hekto.app'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.token }}
+    - ${{ inputs.source }}
+    - ${{ inputs.url }}
